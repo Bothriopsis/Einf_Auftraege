@@ -17,3 +17,6 @@ def validation(array, target):
 
 print(validation(num_array, target_sum))
 
+# Problem 3 / Solution 1
+unsorted_array = [12,24,45,9,8,90,3]
+

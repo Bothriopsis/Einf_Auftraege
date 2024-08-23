@@ -30,7 +30,8 @@ while index < len(unsorted_array):
             unsorted_array[index], unsorted_array[length_index] \
                 = unsorted_array[length_index], unsorted_array[index]
         elif unsorted_array[length_index] % 2 != 0 and length_index > index:
-            length_index -= 1
+            while unsorted_array[length_index] % 2 != 0:
+                length_index -= 1
             unsorted_array[index], unsorted_array[length_index] \
                 = unsorted_array[length_index], unsorted_array[index]
         else:

@@ -17,24 +17,25 @@ def validation(array, target):
 
 print(validation(num_array, target_sum))
 
-
-
 # Problem 3 / Solution 1
-unsorted_array = [12,24,45,9,8,90,3]
+unsorted_array = [12, 24, 45, 9, 8, 90, 3]
 
 index = 0
-next_even = 0
-next_odd = 0
-print(next_odd)
+length_index = len(unsorted_array) - 1
 
-while unsorted_array:
-    if unsorted_array[index] % 2 == 0:
-        next_even = unsorted_array[index]
-    elif unsorted_array[index] % 2 != 0:
-        next_odd = unsorted_array[index]
-    print(unsorted_array[index])
+print(f"unsorted_array: {unsorted_array}")
+while index < len(unsorted_array):
+    if unsorted_array[index] % 2 != 0:
+        if unsorted_array[length_index] % 2 == 0:
+            unsorted_array[index], unsorted_array[length_index] \
+                = unsorted_array[length_index], unsorted_array[index]
+        elif unsorted_array[length_index] % 2 != 0 and length_index > index:
+            length_index -= 1
+            unsorted_array[index], unsorted_array[length_index] \
+                = unsorted_array[length_index], unsorted_array[index]
+        else:
+            break
     index += 1
-    if index == len(unsorted_array):
-        break
 
-print(unsorted_array)
+
+print(f"Sorted: {unsorted_array}")

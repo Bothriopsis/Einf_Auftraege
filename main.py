@@ -38,5 +38,14 @@ while index < len(unsorted_array):
             break
     index += 1
 
-
 print(f"Sorted: {unsorted_array}")
+
+vector = [12, 24, 45, 9, 8, 90, 3, 23, 58, 23, 91, 17, 73, 85, 982]
+
+
+def vector_sort(e):
+    return e % 2 == 0
+
+
+vector.sort(reverse=True, key=vector_sort)
+print(f"Sorted Vector: {vector}")

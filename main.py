@@ -40,6 +40,7 @@ while index < len(unsorted_array):
 
 print(f"Sorted: {unsorted_array}")
 
+# Problem 3 / Fast Solution
 vector = [12, 24, 45, 9, 8, 90, 3, 23, 58, 23, 91, 17, 73, 85, 982]
 
 

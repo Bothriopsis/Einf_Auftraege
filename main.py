@@ -39,15 +39,7 @@ def array_sub_sum(my_Array, store, sub):
 
 def array_sum(myArray, store, sub):
     list, value = array_sub_sum(myArray, store, sub)
-    temp_array = []
-    summ = 0
-    for i in myArray:
-        summ += i
-        temp_array.append(i)
     if len(myArray) > 0:
-        if summ > store:
-            store = summ
-            sub = temp_array
         if value > store:
             store = value
             sub = list

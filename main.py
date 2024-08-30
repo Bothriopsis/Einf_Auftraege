@@ -17,6 +17,27 @@ def validation(array, target):
 
 print(validation(num_array, target_sum))
 
+# Problem 2 / Solution 1
+input_array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+sub_array = []
+
+
+def array_sum(array, store):
+    sub_array.clear()
+    summ = 0
+    for i in range(len(array) - 1):
+        summ += array[i]
+        sub_array.append(summ)
+    if summ > store:
+        store = summ
+        return array_sum(array[1:], store) or (array_sum(array[:len(array) - 1], store))
+    elif len(array) > 0:
+        return array_sum(array[1:], store) or (array_sum(array[:len(array) - 1], store))
+    else:
+        return sub_array
+
+
+print(f"Output Array: {array_sum(input_array, 0)}")
 # Problem 3 / Solution 1
 unsorted_array = [12, 24, 45, 9, 8, 90, 3]
 

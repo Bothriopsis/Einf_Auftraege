@@ -1,4 +1,6 @@
 # Problem 1 / Solution 1
+from array import array
+
 num_array = [3, 34, 4, 12, 5, 2]
 target_sum = 9
 
@@ -22,22 +24,22 @@ input_array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 sub_array = []
 
 
-def array_sum(array, store):
-    sub_array.clear()
+def array_sum(myArray, store, sub):
+    temp_array = []
     summ = 0
-    for i in range(len(array) - 1):
-        summ += array[i]
-        sub_array.append(summ)
-    if summ > store:
-        store = summ
-        return array_sum(array[1:], store) or (array_sum(array[:len(array) - 1], store))
-    elif len(array) > 0:
-        return array_sum(array[1:], store) or (array_sum(array[:len(array) - 1], store))
+    for i in myArray:
+        summ += i
+        temp_array.append(i)
+    if len(myArray) > 0:
+        if summ > store:
+            store = summ
+            sub = temp_array
+        return array_sum(myArray[1:], store, sub)
     else:
-        return sub_array
+        return sub
 
 
-print(f"Output Array: {array_sum(input_array, 0)}")
+print(f"Output Array: {array_sum(input_array, 0, sub_array)}")
 # Problem 3 / Solution 1
 unsorted_array = [12, 24, 45, 9, 8, 90, 3]
 

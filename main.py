@@ -23,6 +23,7 @@ print(validation(num_array, target_sum))
 input_array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 sub_array = []
 
+
 def array_sub_sum(my_Array, store, sub):
     temp_array = []
     summ = 0
@@ -36,6 +37,7 @@ def array_sub_sum(my_Array, store, sub):
         return array_sub_sum(my_Array[:len(my_Array) - 1], store, sub)
     else:
         return sub, store
+
 
 def array_sum(myArray, store, sub):
     column, value = array_sub_sum(myArray, store, sub)

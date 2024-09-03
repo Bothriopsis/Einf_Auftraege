@@ -23,28 +23,28 @@ input_array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 sub_array = []
 
 
-def array_sub_sum(my_Array, store, sub):
+def array_sub_sum(my_array, store, sub):
     temp_array = []
     summ = 0
-    for i in my_Array:
+    for i in my_array:
         summ += i
         temp_array.append(i)
-    if len(my_Array) > 0:
+    if len(my_array) > 0:
         if summ > store:
             store = summ
             sub = temp_array
-        return array_sub_sum(my_Array[:len(my_Array) - 1], store, sub)
+        return array_sub_sum(my_array[:len(my_array) - 1], store, sub)
     else:
         return sub, store
 
 
-def array_sum(myArray, store, sub):
-    column, value = array_sub_sum(myArray, store, sub)
-    if len(myArray) > 0:
+def array_sum(own_array, store, sub):
+    column, value = array_sub_sum(own_array, store, sub)
+    if len(own_array) > 0:
         if value > store:
             store = value
             sub = column
-        return array_sum(myArray[1:], store, sub)
+        return array_sum(own_array[1:], store, sub)
     else:
         return sub
 

@@ -1,5 +1,4 @@
 # Problem 1 / Solution 1
-from array import array
 
 num_array = [3, 34, 4, 12, 5, 2]
 target_sum = 9

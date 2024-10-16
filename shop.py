@@ -50,7 +50,7 @@ if __name__ == "__main__":
             max_value = sub_sum
         while arr:
             if k_arr and len(k_arr) == k:
-                if arr[-1][0] + arr[-1][1] > 0:
+                if arr[-1][0] + arr[-1][1] >= 0:
                     sub_sum -= k_arr[0][0] + arr[-1][1]
             if arr:
                 heapq.heappushpop(k_arr, arr[-1])

@@ -8,7 +8,7 @@ def inp():
     return int(putin())
 
 
-def invr():
+def invert():
     return map(int, putin().split())
 
 
@@ -26,10 +26,10 @@ if __name__ == "__main__":
     t = inp()
     for x in range(t):
         arr = []
-        n, k = invr()
-        a = list(invr())
+        n, k = invert()
+        a = list(invert())
         a = [-x for x in a]
-        b = list(invr())
+        b = list(invert())
         k_arr = []
         max_value = 0
         sub_sum = 0
@@ -52,7 +52,7 @@ if __name__ == "__main__":
             if k_arr and len(k_arr) == k:
                 if arr[0][0] + arr[0][1] > 0:
                     sub_sum -= k_arr[0][0]
-                    sub_sum += arr[0][0] - (arr[0][0] + arr[0][1])
+                    sub_sum -= arr[0][1]
             if arr:
                 heapq.heappushpop(k_arr, arr[0])
                 arr.pop(0)

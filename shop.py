@@ -17,7 +17,8 @@ def starting_price(main_ar, sec_arr):
     for val_a in sec_arr:
         sub_summ += val_a[0]
     for val_b in main_ar:
-        sub_summ += val_b[0] + val_b[1]
+        if val_b[0] + val_b[1] >= 0:
+            sub_summ += val_b[0] + val_b[1]
     return sub_summ
 
 
@@ -50,7 +51,8 @@ if __name__ == "__main__":
         while arr:
             if k_arr and len(k_arr) == k:
                 sub_sum -= k_arr[0][0]
-                sub_sum += arr[0][0] - (arr[0][0] + arr[0][1])
+                if arr[0][0] + arr[0][1] > 0:
+                    sub_sum += arr[0][0] - (arr[0][0] + arr[0][1])
             if arr:
                 heapq.heappushpop(k_arr, arr[0])
                 arr.pop(0)

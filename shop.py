@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
         for i in range(n):
             arr.append([a[i], b[i]])
-        arr.sort(key=lambda y: y[1], reverse=True)
+        arr.sort(key=lambda y: y[1], reverse=False)
 
         for k_range in range(1, k + 1):
             if arr:
@@ -51,7 +51,7 @@ if __name__ == "__main__":
         while arr:
             if k_arr and len(k_arr) == k:
                 if arr[-1][0] + arr[-1][1] > 0:
-                    sub_sum -= k_arr[-1][0] + arr[-1][1]
+                    sub_sum -= k_arr[0][0] + arr[-1][1]
             if arr:
                 heapq.heappushpop(k_arr, arr[-1])
                 arr.pop()

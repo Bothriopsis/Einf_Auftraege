@@ -52,6 +52,8 @@ if __name__ == "__main__":
             if k_arr and len(k_arr) == k:
                 if arr[-1][0] + arr[-1][1] >= 0:
                     sub_sum -= k_arr[0][0] + arr[-1][1]
+                else:
+                    sub_sum -= k_arr[0][0] + arr[-1][1] + arr[-1][0]
             if arr:
                 heapq.heappushpop(k_arr, arr[-1])
                 arr.pop()

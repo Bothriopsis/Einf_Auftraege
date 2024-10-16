@@ -1,40 +1,59 @@
-def main():
-    t = int(input().strip())
+import heapq
+import sys
 
-    for _ in range(t):
-        n, k = map(int, input().strip().split())
-        a = list(map(int, input().strip().split()))
-        b = list(map(int, input().strip().split()))
+putin = sys.stdin.readline
 
-        # Create an index list sorted by b values in descending order
-        indices = sorted(range(n), key=lambda i: b[i], reverse=True)
 
-        # Initial values
-        total_penalty = sum(max(0, b[i] - a[i]) for i in indices)
-        ans = 0
-        current_sum = 0
-        elements = []
+def inp():
+    return int(putin())
 
-        # If the number of elements in the set equals k, calculate potential answer
-        if len(elements) == k:
-            ans = max(ans, total_penalty - current_sum)
 
-        for i in indices:
-            total_penalty -= max(0, b[i] - a[i])
-            elements.append(a[i])
-            current_sum += a[i]
+def invr():
+    return map(int, putin().split())
 
-            # Maintain a list of up to `k` smallest elements
-            if len(elements) > k:
-                largest = max(elements)
-                current_sum -= largest
-                elements.remove(largest)
 
-            if len(elements) == k:
-                ans = max(ans, total_penalty - current_sum)
-
-        print(ans)
+def starting_price(main_ar, sec_arr):
+    sub_summ = 0
+    for val_a in sec_arr:
+        sub_summ += val_a[0]
+    for val_b in main_ar:
+        sub_summ += val_b[0] + val_b[1]
+    return sub_summ
 
 
 if __name__ == "__main__":
-    main()
+    t = inp()
+    for x in range(t):
+        arr = []
+        n, k = invr()
+        a = list(invr())
+        a = [-x for x in a]
+        b = list(invr())
+        k_arr = []
+        max_value = 0
+        sub_sum = 0
+
+        for i in range(n):
+            arr.append([a[i], b[i]])
+        arr.sort(key=lambda x: x[1], reverse=True)
+
+        for k_range in range(1, k + 1):
+            if arr:
+                if k_range <= len(arr):
+                    heapq.heappush(k_arr, arr[0])
+                arr.pop(0)
+
+        if arr:
+            sub_sum = starting_price(arr, k_arr)
+        if sub_sum > max_value:
+            max_value = sub_sum
+        while arr:
+            if k_arr and len(k_arr) == k:
+                sub_sum -= k_arr[0][0]
+                sub_sum += arr[0][0] - (arr[0][0] + arr[0][1])
+            if arr:
+                heapq.heappushpop(k_arr, arr[0])
+                arr.pop(0)
+            if sub_sum > max_value:
+                max_value = sub_sum
+        print(max_value)

@@ -26,11 +26,11 @@ if __name__ == "__main__":
     t = inp()
     for x in range(t):
         arr = []
+        k_arr = []
         n, k = invert()
         a = list(invert())
         a = [-x for x in a]
         b = list(invert())
-        k_arr = []
         max_value = 0
         sub_sum = 0
 
@@ -41,8 +41,8 @@ if __name__ == "__main__":
         for k_range in range(1, k + 1):
             if arr:
                 if k_range <= len(arr):
-                    heapq.heappush(k_arr, arr[0])
-                arr.pop(0)
+                    heapq.heappush(k_arr, arr[-1])
+                arr.pop()
 
         if arr:
             sub_sum = starting_price(arr, k_arr)
@@ -50,12 +50,11 @@ if __name__ == "__main__":
             max_value = sub_sum
         while arr:
             if k_arr and len(k_arr) == k:
-                if arr[0][0] + arr[0][1] > 0:
-                    sub_sum -= k_arr[0][0]
-                    sub_sum -= arr[0][1]
+                if arr[-1][0] + arr[-1][1] > 0:
+                    sub_sum -= k_arr[-1][0] + arr[-1][1]
             if arr:
-                heapq.heappushpop(k_arr, arr[0])
-                arr.pop(0)
+                heapq.heappushpop(k_arr, arr[-1])
+                arr.pop()
             if sub_sum > max_value:
                 max_value = sub_sum
         print(max_value)

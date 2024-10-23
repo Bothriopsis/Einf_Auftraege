@@ -44,15 +44,15 @@ if __name__ == "__main__":
             if arr:
                 heapq.heappush(k_arr, arr[-1])
                 arr.pop()
-
         if arr:
             sub_sum = starting_price(arr, k_arr)
         if sub_sum > max_value:
             max_value = sub_sum
         while arr:
             if arr:
-                sub_sum -= arr[-1][1]
-                if arr[-1][1] + arr[-1][0] <= 0:
+                if arr[-1][1] + arr[-1][0] >= 0:
+                    sub_sum -= arr[-1][1]
+                else:
                     sub_sum += arr[-1][0]
                 temp_pop = heapq.heappushpop(k_arr, arr[-1])
                 arr.pop()

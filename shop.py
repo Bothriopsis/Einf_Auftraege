@@ -27,6 +27,7 @@ if __name__ == "__main__":
     for x in range(t):
         arr = []
         k_arr = []
+        temp_pop = []
         n, k = invert()
         a = list(invert())
         a = [-x for x in a]
@@ -48,14 +49,12 @@ if __name__ == "__main__":
         if sub_sum > max_value:
             max_value = sub_sum
         while arr:
-            if k_arr and len(k_arr) == k:
-                if arr[-1][0] + arr[-1][1] >= 0:
-                    sub_sum -= k_arr[0][0] + arr[-1][1]
-                else:
-                    sub_sum += arr[-1][0] -k_arr[0][0]
             if arr:
-                heapq.heappushpop(k_arr, arr[-1])
+                sub_sum -= arr[-1][1]
+                temp_pop = heapq.heappushpop(k_arr, arr[-1])
                 arr.pop()
+                if temp_pop:
+                    sub_sum -= temp_pop[0]
             if sub_sum > max_value:
                 max_value = sub_sum
         print(max_value)

@@ -40,8 +40,7 @@ if __name__ == "__main__":
 
         for k_range in range(1, k + 1):
             if arr:
-                if k_range <= len(arr):
-                    heapq.heappush(k_arr, arr[-1])
+                heapq.heappush(k_arr, arr[-1])
                 arr.pop()
 
         if arr:

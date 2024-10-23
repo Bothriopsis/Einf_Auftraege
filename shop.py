@@ -34,6 +34,7 @@ if __name__ == "__main__":
         b = list(invert())
         max_value = 0
         sub_sum = 0
+        my_bool = False
 
         for i in range(n):
             arr.append([a[i], b[i]])
@@ -51,6 +52,8 @@ if __name__ == "__main__":
         while arr:
             if arr:
                 sub_sum -= arr[-1][1]
+                if arr[-1][1] + arr[-1][0] <= 0:
+                    sub_sum += arr[-1][0]
                 temp_pop = heapq.heappushpop(k_arr, arr[-1])
                 arr.pop()
                 if temp_pop:

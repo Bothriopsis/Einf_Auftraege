@@ -21,8 +21,8 @@ def starting_price(main_ar, sec_arr):
             sub_summ += val_b[0] + val_b[1]
     return sub_summ
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     t = inp()
     for x in range(t):
         arr = []
@@ -58,6 +58,6 @@ if __name__ == "__main__":
                 arr.pop()
                 if temp_pop:
                     sub_sum -= temp_pop[0]
-        if sub_sum > max_value:
-            max_value = sub_sum
+            if sub_sum > max_value:
+                max_value = sub_sum
         print(max_value)

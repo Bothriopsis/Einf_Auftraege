@@ -6,7 +6,7 @@ import tkinter.messagebox as mbox
 root = tk.Tk()
 root.geometry('700x350')
 root.title('Shop Game')
-root.resizable(False, False)
+root.resizable(False, True)
 
 
 def starting_price(main_ar, sec_arr):

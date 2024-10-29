@@ -2,4 +2,4 @@
 Aufträge des Ergänzungsfachs Informatik
 
 # GUI Shop Problem
-Sött jetz laufe
+Sött jetzt laufe

@@ -34,7 +34,6 @@ if __name__ == "__main__":
         b = list(invert())
         max_value = 0
         sub_sum = 0
-        my_bool = False
 
         for i in range(n):
             arr.append([a[i], b[i]])

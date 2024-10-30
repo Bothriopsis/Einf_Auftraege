@@ -21,14 +21,20 @@ def starting_price(main_ar, sec_arr):
 def main():
     try:
         t = int(text.get('1.0', '1.end'))
-
+        z = 2
         global text1
         text1.destroy()
         for x in range(t):
             arr = []
-            n, k = list(map(int, text.get('2.0', '2.end').strip().split()))
-            a = list(map(int, text.get('3.0', '3.end').strip().split()))
-            b = list(map(int, text.get('4.0', '4.end').strip().split()))
+
+            n, k = list(map(int, text.get(f'{z}.0', f'{z}.end').strip().split()))
+            z += 1
+            a = list(map(int, text.get(f'{z}.0', f'{z}.end').strip().split()))
+            z += 1
+            b = list(map(int, text.get(f'{z}.0', f'{z}.end').strip().split()))
+            z += 1
+            print(a)
+            print(b)
             a = [-x for x in a]
             k_arr = []
             temp_pop = []

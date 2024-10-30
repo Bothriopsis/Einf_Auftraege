@@ -66,7 +66,6 @@ def main():
                         sub_sum -= temp_pop[0]
                 if sub_sum > max_value:
                     max_value = sub_sum
-
             text1 = tk.Label(text=max_value, font=('Helvetica', 10, 'bold'))
             text1.pack()
     except:
